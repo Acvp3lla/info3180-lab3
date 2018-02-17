@@ -1,0 +1,64 @@
+
+{% extends "base.html" %}
+
+{% block main %}
+      <form action="/contact" method ="POST">
+         <fieldset>
+            <legend style = "font-size:20px; font-weight:bold;">Contact Form</legend>
+            <p style = "font-size:12px; font-weight:bold;">Fill in this form to contact site ownwers.</p>
+            
+            <div style = "font-size:20px; font-weight:bold;">
+               {{ form.csrf_token }}
+               
+               <!---Name Input-->
+               {{ form.name.label }}<br>
+               <!-------------------------------------------------------->
+               <!---Error Message-->
+               {% for message in form.name.errors %}
+               <div style="color:red; font-size:15px;">{{ message }}</div>
+               {% endfor %}
+               <!-------------------------------------------------------->
+               {{ form.name }}
+               <br>
+               
+               <!---Email Input-->
+               {{ form.email.label }}<br>
+               <!-------------------------------------------------------->
+               <!---Error Message-->
+               {% for message in form.email.errors %}
+               <div style="color:red; font-size:15px;">{{ message }}</div>
+               {% endfor %}
+               <!-------------------------------------------------------->
+               {{ form.email }}
+               <br>
+               
+               <!---Subject Input-->
+               {{ form.subject.label }}<br>
+               <!-------------------------------------------------------->
+               <!---Error Message-->
+               {% for message in form.subject.errors %}
+               <div style="color:red; font-size:15px;">{{ message }}</div>
+               {% endfor %}
+               <!-------------------------------------------------------->
+               {{ form.subject }}
+               <br>
+               
+               <!---Message Input-->
+               {{ form.message.label }}<br>
+               <!-------------------------------------------------------->
+               <!---Error Message-->
+               {% for message in form.message.errors %}
+               <div style="color:red; font-size:15px;">{{ message }}</div>
+               {% endfor %}
+               <!-------------------------------------------------------->
+               {{ form.message }}
+               <br>
+               
+               <!---Submit Button-->
+               {{ form.submit }}
+            
+            </div>
+            
+         </fieldset>
+      </form>
+{% endblock %}
